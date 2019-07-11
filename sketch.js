@@ -1,6 +1,7 @@
 let osc, delay, absolute, alpha, beta, gamma, slider;
 let phone = false;
-let playing = true;
+let playing = false;
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
   phone = true;
 }
