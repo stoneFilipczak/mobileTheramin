@@ -1,7 +1,6 @@
 let osc, delay, absolute, alpha, beta, gamma, slider;
 let phone = false;
-let playing = false;
-
+let playing = true;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
   phone = true;
 }
@@ -93,8 +92,10 @@ function draw() {
     osc.freq(mouseX);
     osc.amp(map(-mouseY, -windowHeight, 0, 0, 1));
   } else if (phone == true) {
-    osc.freq(map(gamma, -90, 90, 100, 2000));
-    osc.amp(map(beta, -180, 180, 0, 1));
+    var freq = map(gamma, -90, 90, 100, 2000) || 0;
+    var amp = map(beta, -180, 180, 0, 1) || 0;
+    osc.freq(freq);
+    osc.amp(amp);
   }
 }
 
